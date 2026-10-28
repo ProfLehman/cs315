@@ -1,90 +1,45 @@
-# Lab: From Python to Machine Architecture
+# Lab: Python, MARIE, and Native Assembly
 
-**Course:** Computer Organization / Architecture  
-**Due Date:** [To be announced]  
-**Student Name:** ____________________
+**40 points**  
+**Due date:** Friday, November 6
 
-## Overview
+## Objective
 
-In MARIE, you learned how an accumulator-based computer executes instructions. In this lab, you will compare that architecture with Python's stack-based virtual machine and a modern register-based processor.
+Compare three ways of executing the same program: MARIE's **accumulator**, Python's **stack-based bytecode**, and a real processor's **register-based assembly language**. You may use AI to generate and debug code, but you must test the programs and understand how they work.
 
-You will use AI to assist with translating four Python programs into MARIE assembly and either x86-64 or ARM64 assembly. You must test the generated code, identify the important instructions, and explain how each architecture executes the same algorithm.
+## Assigned numbers
 
-## Learning Objectives
+Use your assigned value of `N` in **all four** Python programs and translations.
 
-After completing this lab, you should be able to:
+| Student | Name | N |
+|---|---|---:|
+| Student A | __________________ | 3 |
+| Student B | __________________ | 5 |
+| Student C | __________________ | 7 |
+| Student D | __________________ | 9 |
+| Student E | __________________ | 11 |
+| Student F | __________________ | 13 |
 
-1. Explain the differences between accumulator, stack, and register-based architectures.
-2. Examine actual Python bytecode using the `dis` module.
-3. Translate Python programs into MARIE assembly.
-4. Translate Python programs into x86-64 or ARM64 assembly.
-5. Assemble and execute programs on a real processor.
-6. Explain how different architectures handle arithmetic, branching, loops, and memory.
-7. Evaluate and correct AI-generated assembly code.
+## The four Python programs
 
-## Assigned Student Numbers
+Replace `7` with your assigned number. Include your **name** in a comment at the top of each source file. Keep the algorithms intact in every translation; do not simply print the expected answer.
 
-Each student must use their assigned number, **N**, in all four programs.
-
-| Student | Name | Assigned Number (N) |
-|---|---|---|
-| Student 1 | __________ | 3 |
-| Student 2 | __________ | 5 |
-| Student 3 | __________ | 7 |
-| Student 4 | __________ | 9 |
-| Student 5 | __________ | 11 |
-| Student 6 | __________ | 13 |
-
-Replace the example value `N = 7` with your assigned number in each program.
-
-## Architecture Requirements
-
-All students must complete the following for each of the four programs:
-
-1. Run the original Python program.
-2. Examine and explain its Python bytecode.
-3. Translate the program into MARIE assembly and execute it.
-4. Translate the program into **one** of the following architectures:
-   - **x86-64 assembly** running on the Ada Linux server.
-   - **ARM64 assembly** running on a Raspberry Pi (optional).
-5. Execute the assembly program and verify that its output matches Python.
-
-Use the same native architecture for all four programs.
-
----
-
-## Program 1: Arithmetic
-
-**Concepts:** Arithmetic operations, intermediate values, accumulator, operand stack, and registers.
+### Program 1 — Arithmetic
 
 ```python
-# your name
-N = 7  # Replace with your assigned number
-
+# Your name
+N = 7
 x = N + 10
 y = N * 2
 z = (x + y) * 2
-
 print(z)
 ```
 
-### Questions
-
-1. How does MARIE perform the addition?
-2. How does Python's operand stack handle `x + y`?
-3. Where does the x86-64 or ARM64 processor store the intermediate result?
-4. How is multiplication by 2 implemented in your MARIE program?
-
----
-
-## Program 2: Conditional Branching
-
-**Concepts:** Comparisons, conditional instructions, and branching.
+### Program 2 — Conditional
 
 ```python
-# your name
-N = 7  # Replace with your assigned number
-
+# Your name
+N = 7
 x = N * 3
 y = 40 - N
 
@@ -96,25 +51,11 @@ else:
 print(z)
 ```
 
-### Questions
-
-1. How does MARIE determine which branch to execute?
-2. Which Python bytecode instructions implement the comparison and branch?
-3. Which instructions perform the comparison and branch in x86-64 or ARM64?
-4. What happens to the program counter when a branch is taken?
-
-**Additional requirement:** Test both possible branches by temporarily changing N. Record the additional test value and its result.
-
----
-
-## Program 3: Loops
-
-**Concepts:** Loop counters, conditional branches, and program control.
+### Program 3 — Loop
 
 ```python
-# your name
-N = 7  # Replace with your assigned number
-
+# Your name
+N = 7
 total = 0
 i = 1
 
@@ -125,26 +66,12 @@ while i <= N:
 print(total)
 ```
 
-### Questions
-
-1. How does MARIE implement the loop?
-2. Which Python bytecode instruction causes execution to jump backward?
-3. How does the x86-64 or ARM64 version implement repetition?
-4. Where is the loop counter stored in each architecture?
-
-**Requirement:** Your MARIE and native assembly programs must contain actual loops. Do not substitute the mathematical formula for the result.
-
----
-
-## Program 4: Arrays and Memory Addressing
-
-**Concepts:** Arrays, memory locations, pointers, indirect addressing, and load/store instructions.
+### Program 4 — Array
 
 ```python
-N = 7  # Replace with your assigned number
-
+# Your name
+N = 7
 numbers = [N, N + 5, N + 10, N + 15]
-
 total = 0
 
 for value in numbers:
@@ -153,144 +80,84 @@ for value in numbers:
 print(total)
 ```
 
-### Questions
+The translated versions of Program 3 must execute a **real loop**. The translated versions of Program 4 must actually traverse an array stored in memory (using indirect or indexed addressing), not replace it with four separate constant additions.
 
-1. How are the four array elements stored in MARIE memory?
-2. How does MARIE's `LoadI` instruction work?
-3. Which Python bytecode instructions implement iteration through the list?
-4. How are array elements accessed in x86-64 or ARM64?
-5. What is the difference between direct and indirect memory addressing?
+## Files to create
 
-**Requirement:** Your MARIE and native assembly programs must store four values in consecutive memory locations and traverse them. Do not replace the loop with four hard-coded additions.
+Create **three items for each program**, using the following names:
 
----
+| File | Purpose |
+|---|---|
+| `p1.py` | Original customized Python source |
+| `p1.dis` | Readable Python bytecode listing produced by `dis` |
+| `p1.s` | Native x86-64 or ARM64 assembly source |
 
-# Part 1: Examine Python Bytecode
+Repeat for `p2`, `p3`, and `p4`. The `.dis` file is **text**, not an executable bytecode file. Do not use `.b`; Python's compiled `.pyc` files are a different format. The standard extension for GNU assembly source is **`.s`**, not `.a` (`.a` often indicates an archive/library).
 
-For each program:
+### 1. Python and bytecode
 
-1. Save the customized Python code as `program1.py`, `program2.py`, and so forth.
-2. Run the program and record its output.
-3. Display the bytecode using:
+Run the Python program and then create its readable bytecode listing:
 
 ```bash
-python -m dis program1.py
+python p1.py
+python -m dis p1.py > p1.dis
 ```
 
-4. Record your Python version:
+Repeat with `p2.py`, `p3.py`, and `p4.py`. Use `python --version` to check your Python version. Take a screenshot showing each Python program executing and its **numerical output**. Keep the `.py` and `.dis` files available for grading.
+
+### 2. MARIE
+
+Use the online simulator at **https://marie.js.org/** to create and test a MARIE version of **each** program. Do not use an `ORG` statement; let the program start at address `000`. Use the simulator's **Get share URL** command to generate a link for each completed program. Open each link yourself to verify that it contains the correct code. Include the four links in your submission, labeled `P1` through `P4`. The instructor will open and run them.
+
+### 3. x86-64 or ARM64 assembly
+
+Choose **one platform for all four programs**:
+
+- **x86-64 on Ada:** Write `p1.s` through `p4.s` in your Ada account. Leave your source files, executables, and screenshots in a clearly named assignment directory in your account. The instructor will inspect them using authorized course-administration access; do not submit passwords.
+- **ARM64 on Raspberry Pi (optional):** Write and run the same four `.s` programs on the Pi. Save your source files, executables, and screenshots on the assigned SD card, and physically submit that **clearly labeled SD card**. Ensure the card is shut down and removed safely.
+
+On a Linux target with GCC installed, example commands are:
 
 ```bash
-python --version
+gcc -g p1.s -o p1
+./p1
+objdump -d p1
 ```
 
-5. Copy the bytecode listing into your submission.
-6. Identify and explain at least four important bytecode instructions.
-7. Show how the operand stack changes during an important calculation or operation.
+Repeat for all programs. Take a screenshot showing the execution command and correct numerical output for **each** assembly program. Keep the source and screenshots together for grading. Your native assembly must match your target processor (`x86_64` on Ada or `aarch64` on a 64-bit Raspberry Pi); check with `uname -m`.
 
-**Note:** Python bytecode instructions can vary between Python versions. Use the instructions generated by your installed version.
+## What to submit
 
-# Part 2: Translate into MARIE
+**In the assignment submission**, provide:
 
-For each program:
+1. **Four MARIE share links** (`P1`–`P4`).
+2. **Answers to the five questions below** (about 2–4 sentences per question).
+3. **Your selected native platform** (Ada x86-64 or Raspberry Pi ARM64) and, for Ada, the directory location where your files can be found.
 
-1. Ask AI to translate your Python code into MARIE assembly.
-2. Review the generated instructions.
-3. Assemble and execute the program in the MARIE simulator.
-4. Correct any errors.
-5. Verify that its output matches the original Python program.
+**Leave on Ada or submit on the Raspberry Pi SD card:**
 
-Your programs must preserve the original algorithms, including conditional branches, loops, and array traversal.
+- `p1.py`–`p4.py` (4 Python programs).
+- `p1.dis`–`p4.dis` (4 readable bytecode listings).
+- `p1.s`–`p4.s` (4 native assembly source files), the corresponding executables, and screenshots showing successful execution/output of Python and native assembly for each program.
 
-Submit the MARIE source code and evidence of successful execution.
+The instructor will verify the MARIE programs through the shared links. If a shared link fails, you may be asked to provide the MARIE source directly.
 
-# Part 3: Translate into x86-64 or ARM64
+## Five questions (answer once, after completing all programs)
 
-Choose one architecture:
+1. **Accumulator vs. stack:** How does MARIE's accumulator differ from the operand stack used by Python bytecode? Use Program 1 as an example.
+2. **Registers:** How does your chosen native architecture (x86-64 or ARM64) perform arithmetic differently from MARIE and Python bytecode? Include one actual assembly instruction from your code.
+3. **Control flow:** Which instructions implement the conditional in Program 2 and the loop in Program 3? Give an example from MARIE and one from your native assembly.
+4. **Memory addressing:** How does Program 4 access the array elements in MARIE compared with your native assembly program?
+5. **AI verification:** Describe one issue you corrected in AI-generated code **or** one significant claim you independently checked. How did you verify correctness?
 
-- **Option A:** x86-64 on Ada.
-- **Option B:** ARM64 on a Raspberry Pi.
-
-For each program:
-
-1. Ask AI to generate complete Linux-compatible assembly source.
-2. Save the program as a `.s` file.
-3. Assemble and link the program using GCC.
-4. Execute the program.
-5. Verify the output.
-6. Examine part of the resulting machine code.
-
-Example commands:
-
-```bash
-gcc -g program1.s -o program1
-./program1
-objdump -d program1
-```
-
-Your generated assembly must match the architecture of the computer executing it.
-
-# Part 4: Comparing Architectures
-
-Complete the following table for your selected native architecture.
-
-| Feature | MARIE | Python Bytecode | x86-64 or ARM64 |
-|---|---|---|---|
-| Primary operand storage | | | |
-| Number of explicit arithmetic operands | | | |
-| How addition is performed | | | |
-| How conditional branches work | | | |
-| How loops are implemented | | | |
-| How memory is accessed | | | |
-| Where intermediate results are stored | | | |
-
-Then answer:
-
-1. What are the advantages and disadvantages of an accumulator-based architecture?
-2. How does a stack-based architecture differ from a register-based architecture?
-3. What is the difference between two-address and three-address instructions?
-4. Why are CISC and RISC not defined solely by the number of operands?
-5. Which architecture did you find easiest to understand, and why?
-
-# Part 5: Using Artificial Intelligence
-
-You are **encouraged to use AI** to help generate, explain, and debug assembly-language programs.
-
-However, you are responsible for ensuring that every generated program is correct.
-
-### Suggested AI Prompt
-
-> I am studying computer organization and instruction set architectures. Translate the following Python program into MARIE assembly using instructions supported by the MARIE simulator. Preserve the original algorithm, including loops, comparisons, and memory accesses. Do not replace calculations with precomputed answers. Explain each important instruction.
->
-> [Paste your Python program here.]
-
-For your native assembly translation, change the prompt to request either x86-64 GNU assembly for Linux or AArch64 GNU assembly for Linux.
-
-For each program, document at least one AI-generated detail that you independently verified or corrected.
-
-# Submission Requirements
-
-Submit the following:
-
-- [ ] Four Python programs with your assigned number.
-- [ ] Python bytecode listings for all four programs.
-- [ ] Explanations of important stack operations.
-- [ ] Four MARIE assembly programs.
-- [ ] Evidence that the MARIE programs execute correctly.
-- [ ] Four x86-64 or ARM64 assembly programs.
-- [ ] Evidence that the native assembly programs execute correctly.
-- [ ] Completed architecture comparison table.
-- [ ] Answers to the comparison questions.
-- [ ] Documentation of AI assistance and your verification work.
-
-**Important:** Simply producing the correct numerical answer is insufficient. Your programs must implement the required arithmetic, branching, loops, and memory accesses.
-
-# Grading Rubric
+## Grading (40 points)
 
 | Component | Points |
 |---|---:|
-| Python bytecode analysis (4 × 5) | 20 |
-| MARIE implementations (4 × 8) | 32 |
-| x86-64 or ARM64 implementations (4 × 8) | 32 |
-| Architecture comparison and questions | 10 |
-| AI verification and documentation | 6 |
-| **Total** | **100** |
+| Four MARIE programs and working share links (4 × 3) | 12 |
+| Four Python programs, bytecode listings, and execution screenshots (4 × 2) | 8 |
+| Four native assembly programs and execution screenshots (4 × 3) | 12 |
+| Five written questions (5 × 1.6) | 8 |
+| **Total** | **40** |
+
+**Important:** The code must implement the requested computations, branches, loops, and memory accesses. Merely producing the correct answer with a hard-coded constant is not sufficient. AI assistance is permitted and encouraged, but you are responsible for testing every program.
