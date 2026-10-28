@@ -92,7 +92,7 @@ Create **three items for each program**, using the following names:
 | `p1.dis` | Readable Python bytecode listing produced by `dis` |
 | `p1.s` | Native x86-64 or ARM64 assembly source |
 
-Repeat for `p2`, `p3`, and `p4`. The `.dis` file is **text**, not an executable bytecode file. Do not use `.b`; Python's compiled `.pyc` files are a different format. The standard extension for GNU assembly source is **`.s`**, not `.a` (`.a` often indicates an archive/library).
+Repeat for `p2`, `p3`, and `p4`. The `.dis` file is **text**, not an executable bytecode file. Python's compiled `.pyc` files are a different format. The standard extension for GNU assembly source is **`.s`**, not `.a` (`.a` often indicates an archive/library).
 
 ### 1. Python and bytecode
 
@@ -113,8 +113,8 @@ Use the online simulator at **https://marie.js.org/** to create and test a MARIE
 
 Choose **one platform for all four programs**:
 
-- **x86-64 on Ada:** Write `p1.s` through `p4.s` in your Ada account. Leave your source files, executables, and screenshots in a clearly named assignment directory in your account. The instructor will inspect them using authorized course-administration access; do not submit passwords.
-- **ARM64 on Raspberry Pi (optional):** Write and run the same four `.s` programs on the Pi. Save your source files, executables, and screenshots on the assigned SD card, and physically submit that **clearly labeled SD card**. Ensure the card is shut down and removed safely.
+- **x86-64 on Ada:** Write `p1.s` through `p4.s` in your Ada account. Leave your source files, executables, and screenshots in a clearly named assignment directory in your account. The instructor will inspect them using authorized administration access; do not submit passwords.
+- **ARM64 on Raspberry Pi (optional):** Rather than using Ada, write and run the same four `.s` programs on the Pi. Save your source files, executables, and screenshots on the assigned SD card, and physically submit that **clearly labeled SD card**. Ensure the card is shut down and removed safely.
 
 On a Linux target with GCC installed, example commands are:
 
@@ -144,6 +144,8 @@ The instructor will verify the MARIE programs through the shared links. If a sha
 
 ## Five questions (answer once, after completing all programs)
 
+Answer each of the following questions (1 or 2 paragraphs each).
+
 1. **Accumulator vs. stack:** How does MARIE's accumulator differ from the operand stack used by Python bytecode? Use Program 1 as an example.
 2. **Registers:** How does your chosen native architecture (x86-64 or ARM64) perform arithmetic differently from MARIE and Python bytecode? Include one actual assembly instruction from your code.
 3. **Control flow:** Which instructions implement the conditional in Program 2 and the loop in Program 3? Give an example from MARIE and one from your native assembly.
@@ -160,4 +162,4 @@ The instructor will verify the MARIE programs through the shared links. If a sha
 | Five written questions (5 × 1.6) | 8 |
 | **Total** | **40** |
 
-**Important:** The code must implement the requested computations, branches, loops, and memory accesses. Merely producing the correct answer with a hard-coded constant is not sufficient. AI assistance is permitted and encouraged, but you are responsible for testing every program.
+**Important:** The code must implement the requested computations, branches, loops, and memory accesses. Merely producing the correct answer with a hard-coded constant is not sufficient. AI assistance is permitted and encouraged (required, unless you already know how to write assembler), but you are responsible for testing every program.
