@@ -123,10 +123,15 @@ On a Linux target with GCC installed, example commands are:
 ```bash
 gcc -g p1.s -o p1
 ./p1
+```
+
+To disassemble the compiled x86-64 executable and view its machine code alongside the corresponding assembly instructions, use:
+
+```
 objdump -d p1
 ```
 
-## sample prompt for x86 conversion
+## Sample AI prompt for x86 conversion
 ```
 Convert the following Python program into x86-64 GNU assembly for a Linux system.
 
