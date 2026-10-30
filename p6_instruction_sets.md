@@ -126,6 +126,33 @@ gcc -g p1.s -o p1
 objdump -d p1
 ```
 
+## sample prompt for x86 conversion
+```
+Convert the following Python program into x86-64 GNU assembly for a Linux system.
+
+Requirements:
+Use GNU assembler (GAS) with AT&T syntax.
+Use a main function rather than _start so the program can be compiled using GCC.
+Use 64-bit integer variables stored in the .data section.
+Use x86-64 registers and instructions for arithmetic, comparisons, and program control.
+Translate Python if statements and loops into assembly using conditional jumps and labels.
+Use the C library function printf() to display results, equivalent to Python's print().
+Follow the Linux x86-64 System V calling convention, including correct register usage and stack alignment.
+Include comments explaining the major sections of the assembly program.
+Keep the assembly code straightforward and suitable for introductory computer architecture students.
+
+Provide commands to compile and run the program using:
+gcc -g program.s -o program
+./program
+
+Show the expected output.
+
+Python program to convert:
+
+# Insert Python program here
+
+```
+
 Repeat for all programs. Take a screenshot showing the execution command and correct numerical output for **each** assembly program. Keep the source and screenshots together for grading. Your native assembly must match your target processor (`x86_64` on Ada or `aarch64` on a 64-bit Raspberry Pi); check with `uname -m`.
 
 ## What to submit
