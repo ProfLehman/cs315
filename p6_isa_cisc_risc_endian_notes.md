@@ -1,6 +1,6 @@
 # Computer Architecture: ISA, RISC, CISC, Memory Addressing, M1 vs Pi5, Endianness
 
-**AI Classroom Notes - Lehman Fall 2026**
+**AI generated notes - Lehman Fall 2026**
 
 **Learning objectives**
 
@@ -487,9 +487,6 @@ Raspberry Pi+1
 | Memory bandwidth        | About 68 GB/s                           | Up to 17 GB/s  |
 | Shared/high-level cache | Larger cache resources                  | 2 MB shared L3 |
 
-[image](https://www.google.com/s2/favicons?domain=https://github.com\&sz=32)
-
-GitHub+2
 
 There are four major reasons for the performance difference.
 
@@ -500,6 +497,7 @@ Second, the M1 has more CPU cores. Its four performance cores and four efficienc
 Third, the M1 has a much faster memory system. Larger caches and approximately four times the theoretical memory bandwidth help keep its CPU cores supplied with data.
 
 Fourth, the M1 benefits from a more advanced chip design. Its 5 nm manufacturing process enables a higher transistor density, allowing Apple to devote more hardware to processing, caching, and other functions. The process node alone does not determine speed, but it helps enable the design.
+
 
 ## 3. The most important teaching concept: Instructions per clock
 
