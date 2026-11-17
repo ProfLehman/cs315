@@ -6,7 +6,7 @@ Download and run the current version of [Geekbench](https://www.geekbench.com/) 
 
 **a.** Run the CPU benchmark and record your processor's **single-core** and **multi-core** scores.
 
-**b.** Run the GPU benchmark and record your **GPU score**. If your computer does not support the GPU benchmark, explain why.
+**b.** Run the GPU benchmark and record your **GPU score** and the compute API used (e.g., OpenCL, Vulkan, or Metal). If your computer does not support the GPU benchmark, explain why.
 
 **c.** Save both benchmark reports as PDF files using your browser's Print to PDF feature.
 
@@ -14,17 +14,7 @@ Download and run the current version of [Geekbench](https://www.geekbench.com/) 
 
 ---
 
-### 2. Comparing Benchmark Programs
-
-Select a **second benchmarking program** to evaluate your computer's CPU or GPU. You may use [Cinebench](https://www.maxon.net/en/cinebench) or another reputable benchmarking tool.
-
-**a.** Run the benchmark and save your results as a PDF or screenshot.
-
-**b.** Compare this benchmark with Geekbench. Explain what each benchmark measures, how their testing methods differ, and whether their numerical scores can be directly compared. **(1–2 paragraphs)**
-
----
-
-### 3. (A, B, C) File Writing Performance Benchmark
+### 2. (A, B, C) File Writing Performance Benchmark
 
 Run the sample Python program **performance_2026.py** on your personal computer. The program measures how different write block sizes affect file-writing performance.
 
@@ -59,9 +49,9 @@ Write a paragraph interpreting your results. How does block size affect performa
 
 ---
 
-### 3. (D) USB Comparison Transfer Rates
+### 2. (D) USB Comparison Transfer Rates
 
-**d.** Select a USB storage device and determine its advertised or expected write transfer rate (MB/s). USB drives are available to borrow if needed. Modify the program's output filename to write directly to the USB drive. Run the benchmark using **one of the same file sizes from part (b)**.
+**d.** Select a USB storage device and determine its advertised or expected write transfer rate (MB/s), if available. If no write speed is published, identify the USB standard supported by the device. USB drives are available to borrow if needed. Modify the program's output filename to write directly to the USB drive. Run the benchmark using **one of the same file sizes from part (b)**.
 
 Create a **table and graph** comparing the performance of your USB drive and internal storage for each block size. The graph should compare write block size (horizontal axis) with average execution time (vertical axis), using a separate series for each storage device.
 
@@ -92,10 +82,8 @@ Submit the following files and responses through Moodle:
 
 - **Geekbench:** CPU and GPU benchmark reports (PDF files).
 - **Geekbench Analysis:** 1–2 paragraphs comparing single-core and multi-core performance (Part 1d).
-- **Second Benchmark:** Results from another benchmarking program (PDF or screenshot).
-- **Benchmark Comparison:** 1–2 paragraphs comparing your second benchmark with Geekbench (Part 2b).
-- **File Writing – Internal Storage:** A table and graph for your three file sizes, plus one paragraph interpreting your results (Part 3c).
-- **File Writing – USB Comparison:** A table and graph comparing USB and internal storage performance, plus one paragraph interpreting the differences (Part 3d).
+- **File Writing – Internal Storage:** A table and graph for your three file sizes, plus one paragraph interpreting your results (Part 2c).
+- **File Writing – USB Comparison:** A table and graph comparing USB and internal storage performance, plus one paragraph interpreting the differences (Part 2d).
 
 You may combine your written responses, tables, and graphs into a single Word or PDF document. Submit the benchmark reports separately.
 
